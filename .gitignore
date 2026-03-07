@@ -43,7 +43,7 @@ development/frappe-bench/env/
 
 # Local customizations
 my-local-configs/
-scripts/my-*.sh
+my-*.sh
 docs/internal-*.md
 
 # IDE
