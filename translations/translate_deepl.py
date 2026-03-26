@@ -4,7 +4,7 @@ import sys
 import time
 import os
 
-API_KEY = "a326cb99-c020-4a18-976d-5b4ed80c2885:fx"
+API_KEY = input("Enter your DeepL API key: ")
 INPUT = "erpnext_sk.csv"
 OUTPUT = "erpnext_sk_translated.csv"
 PROGRESS = "erpnext_sk_progress.csv"
