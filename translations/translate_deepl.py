@@ -5,9 +5,10 @@ import time
 import os
 
 API_KEY = input("Enter your DeepL API key: ")
-INPUT = "erpnext_sk.csv"
-OUTPUT = "erpnext_sk_translated.csv"
-PROGRESS = "erpnext_sk_progress.csv"
+DIR = input("Enter the directory: ").strip()
+INPUT = os.path.join(DIR, "sk_original.csv")
+OUTPUT = os.path.join(DIR, "sk.csv")
+PROGRESS = os.path.join(DIR, "sk_progress.csv")
 DELAY = 0.5  # sekundy medzi requestmi
 MAX_RETRY = 5
 
@@ -16,11 +17,12 @@ translator = deepl.Translator(API_KEY)
 # Nacitaj vstup
 with open(INPUT, newline="", encoding="utf-8") as f:
     rows = list(csv.reader(f))
+print(f"Cesta k vstupu: {INPUT}")
 
 total = len(rows)
 usage = translator.get_usage()
 print(f"Celkom riadkov: {total}")
-print(f"Zostatok znakov: {usage.character.limit - usage.character.count:,}")
+print(f"Zostatok znakov: {usage.character.limit - usage.character.count:,}") # type: ignore
 
 # Nacitaj progress ak existuje
 done = {}
@@ -54,7 +56,7 @@ for i, row in enumerate(rows):
     for attempt in range(1, MAX_RETRY + 1):
         try:
             r = translator.translate_text(src, source_lang="EN", target_lang="SK")
-            translated = r.text
+            translated = r.text # type: ignore
             break
         except Exception as e:
             msg = str(e)
