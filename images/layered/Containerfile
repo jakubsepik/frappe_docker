@@ -1,8 +1,8 @@
-ARG FRAPPE_BRANCH=version-15
+ARG FRAPPE_BRANCH=version-16
 
 FROM frappe/build:${FRAPPE_BRANCH} AS builder
 
-ARG FRAPPE_BRANCH=version-15
+ARG FRAPPE_BRANCH=version-16
 ARG FRAPPE_PATH=https://github.com/frappe/frappe
 ARG APPS_JSON_BASE64
 
@@ -57,6 +57,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 USER frappe
 
 COPY --from=builder --chown=frappe:frappe /home/frappe/frappe-bench /home/frappe/frappe-bench
+
+#Custom translation sk
+COPY --chown=frappe:frappe translations/erpnext/sk.csv /home/frappe/frappe-bench/apps/erpnext/erpnext/translations/sk.csv
+COPY --chown=frappe:frappe translations/frappe/sk.csv /home/frappe/frappe-bench/apps/frappe/frappe/translations/sk.csv
 
 WORKDIR /home/frappe/frappe-bench
 
