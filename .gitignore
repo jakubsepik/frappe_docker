@@ -29,29 +29,6 @@ venv
 # NodeJS
 node_modules
 
-# Local environment files
-.env.local
-*.local.yaml
-compose.my-*.yaml
-
-# Development artifacts
-development/frappe-bench/sites/*
-development/frappe-bench/apps/*
-!development/frappe-bench/apps.json
-development/frappe-bench/logs/
-development/frappe-bench/env/
-
-# Local customizations
-my-local-configs/
-my-*.sh
-docs/internal-*.md
-
-# IDE
-.vscode/settings.json.local
-.idea/
-
-# Temporary files
-*.swp
-*.swo
-*~
-.DS_Store
+# VitePress
+**/.vitepress/dist
+**/.vitepress/cache

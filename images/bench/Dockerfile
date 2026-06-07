@@ -4,6 +4,7 @@ LABEL author=frappé
 
 ARG GIT_REPO=https://github.com/frappe/bench.git
 ARG GIT_BRANCH=v5.x
+ARG INSTALL_CHROMIUM=true
 
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
@@ -75,6 +76,11 @@ RUN apt-get update \
     file \
     # For MIME type detection
     media-types \
+    # Chromium
+    && if [ "$INSTALL_CHROMIUM" != "false" ]; then \
+        DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
+        chromium-headless-shell; \
+    fi \
     && rm -rf /var/lib/apt/lists/*
 
 RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen \
