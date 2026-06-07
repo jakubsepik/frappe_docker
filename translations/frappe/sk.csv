@@ -4110,7 +4110,7 @@ Document is only editable by users with role,Dokument môžu upravovať len pou�
 {0}: Other permission rules may also apply,{0}: Môžu sa uplatniť aj iné pravidlá oprávnenia,
 {0} Web page views,{0} Zobrazenia webových stránok,
 Expand,Rozšíriť,
-Collapse,Zrútenie,
+Collapse,Skryť,
 "Invalid Bearer token, please provide a valid access token with prefix 'Bearer'.","Invalid Bearer token, zadajte platný prístupový token s prefixom ""Bearer"".",
 "Failed to decode token, please provide a valid base64-encoded token.","Nepodarilo sa dekódovať token, zadajte platný token v kódovaní base64.",
 "Invalid token, please provide a valid token with prefix 'Basic' or 'Token'.","Neplatný token, zadajte platný token s prefixom ""Basic"" alebo ""Token"".",
