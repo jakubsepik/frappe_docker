@@ -10,5 +10,9 @@
   {
     "url": "https://github.com/frappe/offsite_backups",
     "branch": "develop"
+  },
+  {
+    "url": "https://github.com/jakubsepik/candelabra",
+    "branch": "main"
   }
 ]
